@@ -1,0 +1,5 @@
+1. pip list : shows all packages
+2.
+3. pip install <packagename>
+4. pip uninstall <packagename>
+5. see requirement.txt file

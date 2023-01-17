@@ -1,0 +1,4 @@
+ex10: format is not complete
+ex08: space at the end
+ex06: incomplete
+ex05: kata04 is incomplete

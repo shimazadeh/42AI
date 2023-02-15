@@ -2,17 +2,15 @@ import numpy as np
 import pandas as pd
 
 def add_intercept(x):
+	if x is None:
+		return 0
 	df = pd.DataFrame(x)
 	num_columns = len(df.axes[1])
-
-	print(df)
 	first_column = df.pop(0)
 	df.insert(0, 0, 1)
 
 	i = 1
-	print("number of column", num_columns)
 	while(i < num_columns + 1):
-		print(i)
 		if (i < num_columns):
 			next_column = df.pop(i)
 		else:
@@ -34,11 +32,8 @@ def main():
 	y = add_intercept(y)
 	print("y after the change: \n" , np.array2string(y, separator=', '))
 
-
-
 if __name__ == "__main__":
 	main()
-
 
 # # Example 1:
 # x = np.arange(1,6)

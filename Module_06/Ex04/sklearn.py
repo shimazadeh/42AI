@@ -19,6 +19,7 @@ def main():
 	plt.ylabel("Space driving score")
 	plt.show()
 
+	plt.plot()
 	print(MyLR.mse_(Yscore, Y_model1))
 	# 57.60304285714282
 	# print(mean_squared_error(Yscore, Y_model1))

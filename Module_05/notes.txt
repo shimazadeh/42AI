@@ -1,0 +1,22 @@
+1. Why do we concatenate a column of ones to the left of the x vector when we use
+the linear algebra trick?
+
+
+2. Why does the loss function square the distances between the data points and their
+predicted values?
+	becuause at every data point y - y_hat may be negative or positive.
+
+
+3. What does the loss function’s output represent?
+	The loss function is the function that computes the distance between
+	the current output of the algorithm and the expected output .
+	It's a method to evaluate how your algorithm models the data.
+
+4. Toward which value do we want the loss function to tend? What would that mean?
+	zero, when the y and y_hat difference is at the minimum
+
+
+5. Do you understand why are matrix multiplications are not commutative?
+
+
+

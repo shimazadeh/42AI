@@ -1,0 +1,4 @@
+1. I dont understand the difference between ex00 and ex01 (in the original ML07 from intra)
+2. in ex03 I think the transpose of x(with added column) should be used for all formulas as we did
+in module06 but the correct answer will only happen if you use the original x for calculating y_hat
+and the changed x matrix for calculating the transposed one ...?

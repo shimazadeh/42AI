@@ -2,7 +2,6 @@ import numpy as np
 import math
 import pandas as pd
 
-
 def add_intercept(x):
 	if x is None:
 		return 0
@@ -23,6 +22,18 @@ def add_intercept(x):
 	x = df.to_numpy()
 	return (x)
 
+def sigmoid_(x):
+	sig_ = np.zeros((len(x), 1))
+	for i in range(len(x)):
+		sig_[i] = 1 / ( 1 + math.e ** -(x[i]))
+	return (sig_)
+
+def logistic_predict_(x, theta):
+	x_ = add_intercept(x)
+	res = np.dot(x_, theta)
+	sig_ = sigmoid_(res)
+	return (sig_)
+
 def log_gradient(x, y, theta):
 	"""Computes a gradient vector from three non-empty numpy.ndarray, with a for-loop. The three arrays must have compatiblArgs:
 	x: has to be an numpy.ndarray, a matrix of shape m * n.
@@ -36,18 +47,21 @@ def log_gradient(x, y, theta):
 	This function should not raise any Exception.
 	"""
 	x_ = add_intercept(x)
-	x_new = np.dot(theta, x_)
-	J_ = np.zeros((len(theta), 1), dtype=float)
-	for i in range(len(theta)):
-		J_[i] = ((1 / (1 + math.e ** (-x_new[i]))) - y[i]) * (i + 1)
-	return (J_ / len(J_))
+	h_ = logistic_predict_(x, theta)
+	J_ = np.zeros((len(x[0] + 1), 1), dtype=float)
+	m = len(x)
+
+	for i in range(m):
+		J_[0] = J_[0] + (h_[i] - y[i]) / len(x)
+		J_[1] = J_[1] + (h_[i] - y[i]) * x_[i] / len(x)
+	return (J_)
 
 def main():
 	# Example 1:
-	y1 = np.array([1]).reshape((-1, 1))
-	x1 = np.array([4]).reshape((-1, 1))
-	theta1 = np.array([[2], [0.5]])
-	print(log_gradient(x1, y1, theta1))
+	# y1 = np.array([1]).reshape((-1, 1))
+	# x1 = np.array([4]).reshape((-1, 1))
+	# theta1 = np.array([[2], [0.5]])
+	# print(log_gradient(x1, y1, theta1))
 	# Output:
 	# array([[-0.01798621],
 	# [-0.07194484]])

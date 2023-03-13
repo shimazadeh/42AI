@@ -35,20 +35,21 @@ def logistic_predict_(x, theta):
 	return (sig_)
 
 def vec_log_loss_(y, y_hat, eps=1e-15):
-	ones_ = np.ones((len(y), 1))
-	# print(np.log(y_hat))
-	# print(np.log(y_hat).transpose())
-	J_ = np.dot(y, np.log(y_hat + eps).transpose()) + np.dot((ones_ - y), np.log(ones_ - y_hat + eps).transpose())
+	ones_ = np.ones(y.shape)
+	print(np.log(ones_ - y_hat).transpose())
+	J_ = np.dot(y, np.log(y_hat).transpose()) + np.dot((ones_ - y), np.log(ones_ - y_hat).transpose())
 	return (-np.average(J_))
 
 def main():
 	# Example 1:
-	y1 = np.array([1]).reshape((-1, 1))
-	x1 = np.array([4]).reshape((-1, 1))
-	theta1 = np.array([[2], [0.5]])
-	y_hat1 = logistic_predict_(x1, theta1)
-	print(vec_log_loss_(y1, y_hat1))
-	# Output:
+	# y1 = np.array([1]).reshape((-1, 1))
+	# x1 = np.array([4]).reshape((-1, 1))
+	# theta1 = np.array([[2], [0.5]])
+	# y_hat1 = logistic_predict_(x1, theta1)
+	# # print(y_hat1)
+	# # print(y1)
+	# print(vec_log_loss_(y1, y_hat1))
+	# # Output:
 	# 0.01814992791780973
 
 	# Example 2:
@@ -56,6 +57,7 @@ def main():
 	x2 = np.array([[4], [7.16], [3.2], [9.37], [0.56]])
 	theta2 = np.array([[2], [0.5]])
 	y_hat2 = logistic_predict_(x2, theta2)
+	# print(y_hat2)
 	print(vec_log_loss_(y2, y_hat2))
 	# Output:
 	# 2.4825011602474483
